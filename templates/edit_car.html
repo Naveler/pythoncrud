@@ -1,0 +1,20 @@
+<doctype html>
+    <title>Edit Car</title>
+    <h2>Edit Car</h2>
+    <form method="post" action="/update_car">
+        <dl>
+            <p>
+                <input name="inputName" value="{{ row['car_name'] }}" type="text" placeholder="Name" autocomplete="off" required>
+            </p>
+            <p>
+                <input name="inputYear" value="{{ row['car_year'] }}" type="text" placeholder="Year" autocomplete="off" required>
+            </p>
+            <p>
+                <input name="inputDriver" value="{{ row['car_driver'] }}" type="text" placeholder="Driver" autocomplete="off" required>
+            </p>
+        </dl>
+        <p>
+            <input name="id" value="{{ row['car_id'] }}" type="hidden">
+            <input type="submit" value="Submit">
+        </p>
+    </form>

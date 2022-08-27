@@ -4,6 +4,7 @@ class Results(Table):
     car_id = Col('Id', show=False)
     car_name = Col('Name')
     car_year = Col('Year')
+    car_driver = Col('Driver')
     edit = LinkCol('Edit', 'edit_view', url_kwargs=dict(id='car_id'))
     delete = LinkCol('Delete', 'delete_car', url_kwargs=dict(id='car_id'))
 

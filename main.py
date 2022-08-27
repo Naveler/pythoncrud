@@ -16,14 +16,15 @@ def add_car():
 	try:		
 		_car_name = request.form['inputName']
 		_car_year = request.form['inputYear']
+		_car_driver = request.form['inputDriver']
 		if _car_name and _car_year and request.method == 'POST':
-			sql = "INSERT INTO cars(car_name, car_year) VALUES(%s, %s)"
-			data = (_car_name, _car_year)
+			sql = "INSERT INTO cars(car_name, car_year, car_driver) VALUES(%s, %s, %s)"
+			data = (_car_name, _car_year, _car_driver)
 			conn = mysql.connect()
 			cursor = conn.cursor()
 			cursor.execute(sql, data)
 			conn.commit()
-			flash('car added successfully!')
+			flash('Car added successfully!')
 			return redirect('/')
 		else:
 			return 'Error while adding car'
@@ -84,11 +85,12 @@ def update_cars():
 	try:		
 		_car_name = request.form['inputName']
 		_car_year = request.form['inputYear']
+		_car_driver = request.form['inputDriver']
 		_id = request.form['id']
 		# validate the received values
-		if _car_name and _car_year and _id and request.method == 'POST':
-			sql = "UPDATE cars SET car_name=%s, car_year=%s WHERE car_id=%s"
-			data = (_car_name, _car_year, _id)
+		if _car_name and _car_year and _car_driver and _id and request.method == 'POST':
+			sql = "UPDATE cars SET car_name=%s, car_year=%s, car_driver=%s WHERE car_id=%s"
+			data = (_car_name, _car_year, _car_driver, _id)
 			conn = mysql.connect()
 			cursor = conn.cursor()
 			cursor.execute(sql, data)
